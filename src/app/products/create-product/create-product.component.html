@@ -1,0 +1,80 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Create Product</mat-card-title>
+    <mat-card-content>
+
+      <!-- Product Name -->
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="productName" placeholder="Enter product name">
+        <mat-error *ngIf="productForm.get('productName')?.touched && productForm.get('productName')?.invalid">
+          Product name is required and must be at least 3 characters.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Category ID -->
+      <mat-form-field appearance="outline">
+        <mat-label>Category ID</mat-label>
+        <input matInput formControlName="categoryId" placeholder="Enter category ID">
+      </mat-form-field>
+
+      <!-- Product Color -->
+      <mat-form-field appearance="outline">
+        <mat-label>Product Color</mat-label>
+        <input matInput formControlName="color" placeholder="Enter product color">
+      </mat-form-field>
+
+      <!-- Product Price -->
+      <mat-form-field appearance="outline">
+        <mat-label>Product Price</mat-label>
+        <input matInput type="number" formControlName="productPrice" placeholder="Enter product price">
+        <mat-error *ngIf="productForm.get('productPrice')?.touched && productForm.get('productPrice')?.invalid">
+          Product Price is required and must be at least 1$.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Rating -->
+      <mat-form-field appearance="outline">
+        <mat-label>Rating</mat-label>
+        <mat-select formControlName="rating">
+          <mat-option *ngFor="let rating of ratings" [value]="rating">{{ rating }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Is Available -->
+      <mat-form-field appearance="outline">
+        <mat-label>Available</mat-label>
+        <mat-select formControlName="isAvailable">
+          <mat-option *ngFor="let option of availabilityOptions" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Reviews -->
+      <mat-form-field appearance="outline">
+        <mat-label>Reviews</mat-label>
+        <mat-select formControlName="reviews">
+          <mat-option *ngFor="let review of reviews" [value]="review">{{ review }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Product Image URL -->
+      <mat-form-field appearance="outline">
+        <mat-label>Product Image URL</mat-label>
+        <input matInput formControlName="productImg" placeholder="Enter image URL">
+      </mat-form-field>
+
+      <!-- Description -->
+      <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="4" placeholder="Enter product description" ></textarea>
+      </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">Create Product</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

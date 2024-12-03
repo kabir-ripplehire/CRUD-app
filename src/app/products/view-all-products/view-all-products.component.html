@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4" *ngFor="let product of productList">
+    <mat-card class="mat-card h-100">
+      <a (click)="openProductModal(product)" data-toggle="modal" data-target="#productModal">
+        <img [src]="product.productImg" alt="Item" class="img-responsive">
+      </a>
+      <mat-card-header>
+        <mat-card-title>
+          <a routerLink="product/{{product.id}}" class="item-link"><h4>{{ product.productName }}</h4></a>
+        </mat-card-title>
+        <mat-card-subtitle>${{ product.price }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="separator"></div>
+      <mat-card-content>
+        <div class="card-text">{{ product.description }}</div>
+      </mat-card-content>
+      <div class="separator"></div>
+      <mat-card-footer>
+        <small class="text-muted">
+          <ng-container *ngFor="let star of getStars(product.rating)">
+            &#9733;
+          </ng-container>
+          <ng-container *ngFor="let star of getEmptyStars(product.rating)">
+            &#9734;
+          </ng-container>
+        </small>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="productModalLabel">{{ selectedProduct?.productName }}</h4>
+      </div>
+      <div class="modal-body">
+        <img [src]="selectedProduct?.productImg" alt="Product Image" class="img-responsive w-fixed px-1">
+        <div class="px-1">
+        <p><strong>Price:</strong> ${{ selectedProduct?.price }}</p>
+        <p><strong>Description:</strong> {{ selectedProduct?.description }}</p>
+        <p><strong>Color:</strong> {{ selectedProduct?.color }}</p>
+        <p><strong>Reviews:</strong> {{ selectedProduct?.reviews }}</p>
+        <p><strong>Rating:</strong> {{ selectedProduct?.rating }} Stars</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateProduct(selectedProduct)">Update Product</button>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(selectedProduct.id)">Delete Product</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

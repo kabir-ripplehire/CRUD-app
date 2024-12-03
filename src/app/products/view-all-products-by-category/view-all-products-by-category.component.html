@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6  mb-4" *ngFor="let product of productList">
+    <mat-card class="mat-card h-100">
+      <a href="#">
+        <img mat-card-image [src]="product.productImg" alt="Item" class="img-responsive">
+      </a>
+      <mat-card-header>
+        <mat-card-title>
+          <a routerLink="product/{{product.id}}" class="item-link"><h4>{{ product.productName }}</h4></a>
+        </mat-card-title>
+        <mat-card-subtitle>${{ product.price }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="separator"></div>
+      <mat-card-content>
+        <div class="card-text">{{ product.description }}</div>
+      </mat-card-content>
+      <div class="separator"></div>
+      <mat-card-footer>
+        <small class="text-muted">{{ product.rating }} &#9733; &#9733; &#9733;</small>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

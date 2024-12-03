@@ -1,0 +1,11 @@
+<div class="list-group">
+  <a routerLink="products" class="list-group-item">
+  View All Products
+</a>
+
+<div class="mt-1" *ngFor="let cat of catagoryList">
+  <a routerLink="products/category/{{cat.id}}" class="list-group-item">
+    {{ cat.categoryName }}
+  </a>
+</div>
+</div>

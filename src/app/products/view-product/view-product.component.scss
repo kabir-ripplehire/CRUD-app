@@ -1,0 +1,33 @@
+.example-card {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.mat-card {
+  border: 1px solid grey;
+  margin: 1rem;
+}
+
+.mat-card-image {
+  padding: 1rem;
+}
+
+.left-aligned {
+  text-align: left;
+  width: 100%;
+}
+
+.mat-card-title, .mat-card-subtitle {
+  margin: 0;
+}
+.mat-card-content {
+  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
+  padding: 0.5rem;
+}
+.img-responsive {
+  max-height: 45rem;
+}

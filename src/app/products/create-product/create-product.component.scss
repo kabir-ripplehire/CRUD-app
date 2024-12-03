@@ -1,0 +1,11 @@
+.mat-card-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mat-form-field {
+  margin: 1rem;
+}
+
+.mat-card-content>:first-child {
+  margin-top: 1rem;
+}

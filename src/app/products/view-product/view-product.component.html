@@ -1,0 +1,29 @@
+<div class="col-md-2"></div>
+
+<mat-card class="example-card col-md-6">
+  <img mat-card-image src="{{productDetails.productImg}}" alt="T-Shirt" class="img-responsive">
+
+  <mat-card-header class="left-aligned">
+    <mat-card-title><h2> {{ productDetails.productName }}</h2></mat-card-title>
+    <mat-card-subtitle><h3>${{ productDetails.price }}</h3></mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div>
+      <p>{{ productDetails.description }}</p>
+      <p><b>Color:</b> {{ productDetails.color }}</p>
+      <p><b>Reviews:</b> {{ productDetails.reviews }}</p>
+      <p><b>Rating:</b> {{ productDetails.rating }} Stars</p>
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <p>
+      <button mat-button class="btn btn-primary" (click)="updateProduct()">Update Product</button>
+      <button mat-button class="btn btn-danger" (click)="deleteProduct()">Delete Product</button>
+    </p>
+  </mat-card-actions>
+</mat-card>
+
+<div class="col-md-4"></div>
